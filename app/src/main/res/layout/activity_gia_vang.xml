@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GiaVangActivity">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0D7E7E80"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TableLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#FFFFFF">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnTyGia"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tỷ Giá"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnNgoaiTe"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ngoại Tệ"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnGiaVang"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Giá Vàng"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnLaiSuat"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lãi Suất"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnTienAo"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tiền Ảo"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="72dp" />
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/navbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnSJC"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="SJC"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/btnPNG"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="PNG"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/btnDOJI"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="DOJI"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/btnPhuQuy"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="Phú Quý"
+                    android:textSize="8sp"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/btnBTMC"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="BTMC"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/btnTheGioi"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="Kitco"
+                    android:textSize="10sp"
+                    android:textStyle="bold|italic" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/txtBanner1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text=" Banner Quảng Cáo 1" />
+
+        <TableLayout
+            android:id="@+id/contentLayout"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="425dp"
+            android:layout_margin="5dp"
+            android:overScrollMode="always">
+
+            <TableRow
+                android:id="@+id/tableTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtMaNgoaiTe"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Tỉnh thành" />
+
+                <TextView
+                    android:id="@+id/txtVietcomBank"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="Loại"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtTechcomBank"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="Mua vào(Chỉ)"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtDongA"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="Bán ra(Chỉ)"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/tableJPY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#BFFFFFFF">
+
+                <TextView
+                    android:id="@+id/txtJPY"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Hà Nội"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai1"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao1"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="221.05"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa1"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="221.09"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableCNY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtCNY"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="TP.HCM"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai2"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="Nữ Trang"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao2"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="3,279"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa2"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="3,270"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableCHF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtCHF"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Huế"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai3"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao3"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="25,024"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa3"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="25,006"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableAUD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtAUD"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Đà Nẵng"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai4"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="Nguyên Liệu"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao4"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="15.123"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa4"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="15,234"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableGDP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtGDP"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Nha Trang"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai5"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao5"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="15,461"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa5"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="15,461"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableHKD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtHKD"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Hưng Yên"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai6"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao6"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="2,925"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa6"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="2,920"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableSGD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtSGD"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Bắc Ninh"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai7"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="16,610"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao7"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="16,612"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa7"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="16,613"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableTHB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtTHB"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Lào Cai"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai8"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao8"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="749.68"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa8"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="749.69"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableCAD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtCAD"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Vĩnh Long"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai9"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="17,405"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao9"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="17,407"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa9"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="17,400"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableKRW"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtKRW"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Cần Thơ"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai10"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao10"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="19.01"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa10"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="19.02"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableCaMau"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtCaMau"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Cà Mau"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai12"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao12"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.92"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa12"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.93"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableDienBien"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtTinhThanh1"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Cà Mau"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai13"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao13"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.92"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa13"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.93"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableLangSon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/txtRUB"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Cà Mau"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtLoai14"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="SJC-9999"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtMuaVao14"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.92"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/txtBanRa14"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:autoText="false"
+                    android:gravity="center"
+                    android:text="357.93"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="normal" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/txtBanner2"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Banner quảng cáo 2" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="© Copyright 2019. EXCHANGES APP - Ứng dụng cập nhật nhanh giá cả thị trường."
+            android:textSize="8sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

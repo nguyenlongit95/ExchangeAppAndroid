@@ -1,0 +1,27 @@
+<resources>
+<dimen name="fab_margin">20.0dp</dimen>
+<!--Defaultscreenmargins,pertheAndroidDesignguidelines.-->
+<dimen name="activity_horizontal_margin">20.0dp</dimen>
+<dimen name="activity_vertical_margin">20.0dp</dimen>
+<dimen name="dp10">12.5sp</dimen>
+<dimen name="dp20">25.0dp</dimen>
+<dimen name="dp25">31.25dp</dimen>
+<dimen name="dp30">37.5dp</dimen>
+<dimen name="dp35">43.75dp</dimen>
+<dimen name="dp40">50.0dp</dimen>
+<dimen name="dp45">56.25dp</dimen>
+<dimen name="dp46">57.5dp</dimen>
+<dimen name="dp47">58.75dp</dimen>
+<dimen name="dp50">62.5dp</dimen>
+<dimen name="dp60">75.0dp</dimen>
+<dimen name="dp62">77.5dp</dimen>
+<dimen name="dp68">85.0dp</dimen>
+<dimen name="dp70">87.5dp</dimen>
+<dimen name="dp72">90.0dp</dimen>
+<dimen name="dp80">100.0dp</dimen>
+<dimen name="dp328">410.0dp</dimen>
+
+
+<dimen name="sp8">10.0sp</dimen>
+<dimen name="sp12">15.0sp</dimen>
+</resources>

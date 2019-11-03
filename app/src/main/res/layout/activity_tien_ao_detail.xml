@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TienAoDetailActivity" >
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0D7E7E80"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TableLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#FFFFFF">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnTyGia"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tỷ Giá"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnNgoaiTe"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ngoại Tệ"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnGiaVang"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Giá Vàng"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnLaiSuat"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lãi Suất"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnTienAo"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tiền Ảo"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="72dp" />
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/navbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnBitcoin"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Bitcoin"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnEthereum"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Etherum"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnXRP"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="XRP"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnTether"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Tether"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnBitcoinCash"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Stellar"
+                    android:textSize="10sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnLiteCoin"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="LiteCoin"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnCardano"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Cardano"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnTRON"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Tron"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnDASH"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="Dash"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnIOTA"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:text="IOTA"
+                    android:textSize="10sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/txtBanner1"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text=" Banner Quảng Cáo 1" />
+
+        <LinearLayout
+            android:id="@+id/LayoutContent"
+            android:layout_width="match_parent"
+            android:layout_height="440dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:padding="5dp"
+                tools:srcCompat="@drawable/bitcoins" />
+
+            <TextView
+                android:id="@+id/txtTenTienAo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Bitcoins"
+                android:textColor="#FF5722"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtGiaTienAo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="$8,384.45 (2.907%)"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtVonHoaThiTruong"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Vốn hoá thị trường ($)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtVonHoaThiTruong1"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text="150,647,000,000"
+                        android:textColor="#4CAF50"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtThanhKhoan24h"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Thanh khoản 24h ($)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtThanhKhoan24h1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="center|left"
+                        android:text="15,772,800,000.000"
+                        android:textColor="#4CAF50"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtTongTienAo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Tổng số hiện có"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtTongTienAo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text="17,967,500"
+                        android:textColor="#FF9800"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtDaoDong1h"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Dao động 1 giờ (%)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtDaoDong1h1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="center|left"
+                        android:text="0.374"
+                        android:textColor="#FF5722"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtDaoDong24h"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Dao động 24 giờ (%)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtDaoDong24h1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text="2.907"
+                        android:textColor="#FF5722"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtDaoDong7Ngay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="left"
+                        android:paddingLeft="30dp"
+                        android:text="Dao động 1 giờ (%)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtDaoDong7Ngay1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="center|left"
+                        android:text="-12.369"
+                        android:textColor="#FF5722"
+                        android:textSize="12sp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <WebView
+                android:id="@+id/iframeTienAo"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="3dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="© Copyright 2019. EXCHANGES APP - Ứng dụng cập nhật nhanh giá cả thị trường."
+            android:textSize="8sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

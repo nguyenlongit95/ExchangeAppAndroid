@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnMuaChuyenKhoan;
     private Button btnBanTienMat;
     private Button btnBanChuyenKhoan;
+
     // All txt
     private TextView txtVietcombank2;
     private TextView txtVietcombank3;
@@ -211,6 +212,63 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "vietcombank");
+                startActivity(intent);
+            }
+        });
+        btnCallTyGiaTechcomBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "techcom");
+                startActivity(intent);
+            }
+        });
+        btnCallTyGiaArgiBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "agribank");
+                startActivity(intent);
+            }
+        });
+        btnCallTyGiaDongA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "dab");
+                startActivity(intent);
+            }
+        });
+        btnCallTyVietinBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "vietin");
+                startActivity(intent);
+            }
+        });
+        btnCallTySHB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "shb");
+                startActivity(intent);
+            }
+        });
+        btnCallTySacomBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "sacombank");
+                startActivity(intent);
+            }
+        });
+        btnCallTyBIDV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TyGiaActivity.class);
+                intent.putExtra("bank_code", "bidv");
                 startActivity(intent);
             }
         });
@@ -329,8 +387,45 @@ public class MainActivity extends AppCompatActivity {
         txtBIDV11 = findViewById(R.id.txtBIDV11);
         txtBIDV12 = findViewById(R.id.txtBIDV12);
 
+        /**
+        * Type Money
+        **/
+        btnMuaTienMat = (Button) findViewById(R.id.btnMuaTienMat);
+        btnBanTienMat = (Button) findViewById(R.id.btnBanTienMat);
+        btnMuaChuyenKhoan = (Button) findViewById(R.id.btnMuaChuyenKhoan);
+        btnBanChuyenKhoan = (Button) findViewById(R.id.btnBanChuyenKhoan);
         // Call API and get JSON data
-        this.CallAPi();
+        String typeMoney = "muatienmat";
+        String tyMoneyDiff = "muatienmat_diff";
+        this.CallAPi(typeMoney, tyMoneyDiff);
+
+        btnMuaTienMat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CallAPi("muatienmat", "muatienmat_diff");
+            }
+        });
+
+        btnBanTienMat.setOnClickListener(new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                CallAPi("bantienmat", "bantienmat_diff");
+            }
+        });
+
+        btnMuaChuyenKhoan.setOnClickListener(new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                CallAPi("muachuyenkhoan", "muachuyenkhoan_diff");
+            }
+        });
+
+        btnBanChuyenKhoan.setOnClickListener(new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                CallAPi("banchuyenkhoan", "banchuyenkhoan_diff");
+            }
+        });
     }
 
     /**
@@ -339,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
      * @return String Json data
      * @Param: String url API
      */
-    public void CallAPi() {
+    public void CallAPi(final String typeMoney, final String typeMoneyDiff) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         // using Volley library
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, this.urlApi, null, new Response.Listener<JSONArray>() {
@@ -354,28 +449,28 @@ public class MainActivity extends AppCompatActivity {
                          * Gán cho đối tượng tương ứng
                          */
                         if (object.getString("bank_code").equalsIgnoreCase("vietcombank")) {
-                            int fillData = fillDataVietcomBank(object);
+                            int fillData = fillDataVietcomBank(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("techcom")) {
-                            int fillData = fillDataTechcomBank(object);
+                            int fillData = fillDataTechcomBank(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("tpb")) {
-                            int fillData = fillDataTPBank(object);
+                            int fillData = fillDataTPBank(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("dab")) {
-                            int fillData = fillDataDongA(object);
+                            int fillData = fillDataDongA(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("vietin")) {
-                            int fillData = fillDataVietinBank(object);
+                            int fillData = fillDataVietinBank(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("shb")) {
-                            int fillData = fillDataSHB(object);
+                            int fillData = fillDataSHB(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("sacombank")) {
-                            int fillData = fillDataSacomBank(object);
+                            int fillData = fillDataSacomBank(object, typeMoney, typeMoneyDiff);
                         }
                         if (object.getString("bank_code").equalsIgnoreCase("bidv")) {
-                            int fillData = fillDataBIDV(object);
+                            int fillData = fillDataBIDV(object, typeMoney, typeMoneyDiff);
                         }
 
                     } catch (JSONException e) {
@@ -400,277 +495,136 @@ public class MainActivity extends AppCompatActivity {
      * @param object
      * @return int
      */
-    private int fillDataVietcomBank(JSONObject object) {
+    private int fillDataVietcomBank(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank1.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank1.setText("" + object.getDouble("muatienmat"));
+                txtVietcombank1.setText("" + object.getDouble(typeMoney));
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank2.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank2.setText("" + object.getDouble("muatienmat"));
+                txtVietcombank2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank3.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank3.setText("" + object.getString("muatienmat"));
+                txtVietcombank3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank4.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank4.setText("" + object.getString("muatienmat"));
+                txtVietcombank4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank5.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank5.setText("" + object.getString("muatienmat"));
+                txtVietcombank5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank6.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank6.setText("" + object.getString("muatienmat"));
+                txtVietcombank6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank7.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank7.setText("" + object.getString("muatienmat"));
+                txtVietcombank7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank8.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank8.setText("" + object.getString("muatienmat"));
+                txtVietcombank8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank9.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank9.setText("" + object.getString("muatienmat"));
+                txtVietcombank9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank10.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank10.setText("" + object.getString("muatienmat"));
+                txtVietcombank10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank11.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank11.setText("" + object.getString("muatienmat"));
+                txtVietcombank11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietcombank12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietcombank12.setTextColor(Color.parseColor("green"));
                 }
-                txtVietcombank12.setText("" + object.getString("muatienmat"));
-
-            }
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
-
-    private int fillDataTechcomBank(JSONObject object) {
-        try {
-            if (object.getString("code").equals("JPY")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank1.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank1.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank1.setText("" + object.getDouble("muatienmat"));
-
-            }
-            if (object.getString("code").equals("CNY")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank2.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank2.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank2.setText("" + object.getDouble("muatienmat"));
-
-            }
-            if (object.getString("code").equals("CHF")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank3.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank3.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank3.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("AUD")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank4.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank4.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank4.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("GBP")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank4.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank4.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank4.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("HKD")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank6.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank6.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank6.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("SGD")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank7.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank7.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank7.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("THB")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank8.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank8.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank8.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("CAD")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank9.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank9.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank9.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("KRW")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank10.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank10.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank10.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("RUB")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank11.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank11.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank11.setText("" + object.getString("muatienmat"));
-
-            }
-            if (object.getString("code").equals("DKK")) {
-
-                if (object.getDouble("muatienmat_diff") < 0) {
-                    txtTechcomBank12.setTextColor(Color.parseColor("#ff0000"));
-                }
-                if (object.getDouble("muatienmat_diff") > 0) {
-                    txtTechcomBank12.setTextColor(Color.parseColor("green"));
-                }
-                txtTechcomBank12.setText("" + object.getString("muatienmat"));
+                txtVietcombank12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -681,143 +635,290 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Fill data TPB
+     * Fill data to TechcomBank
+     *
+     * @param object
+     * @return int
+     */
+    private int fillDataTechcomBank(JSONObject object, String typeMoney, String typeMoneyDiff) {
+        try {
+            if (object.getString("code").equals("JPY")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank1.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank1.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank1.setText("" + object.getDouble(typeMoney));
+
+            }
+            if (object.getString("code").equals("CNY")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank2.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank2.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank2.setText("" + object.getDouble(typeMoney));
+
+            }
+            if (object.getString("code").equals("CHF")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank3.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank3.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank3.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("AUD")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank4.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank4.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank4.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("GBP")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank4.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank4.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank4.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("HKD")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank6.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank6.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank6.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("SGD")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank7.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank7.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank7.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("THB")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank8.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank8.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank8.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("CAD")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank9.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank9.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank9.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("KRW")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank10.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank10.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank10.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("RUB")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank11.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank11.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank11.setText("" + object.getString(typeMoney));
+
+            }
+            if (object.getString("code").equals("DKK")) {
+
+                if (object.getDouble(typeMoneyDiff) < 0) {
+                    txtTechcomBank12.setTextColor(Color.parseColor("#ff0000"));
+                }
+                if (object.getDouble(typeMoneyDiff) > 0) {
+                    txtTechcomBank12.setTextColor(Color.parseColor("green"));
+                }
+                txtTechcomBank12.setText("" + object.getString(typeMoney));
+
+            }
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * Fill data TPBank
      *
      * @param object
      * @return
      */
-    private int fillDataTPBank(JSONObject object) {
+    private int fillDataTPBank(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB1.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB1.setText("" + object.getDouble("muatienmat"));
+                txtTPB1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB2.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB2.setText("" + object.getDouble("muatienmat"));
+                txtTPB2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB3.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB3.setText("" + object.getString("muatienmat"));
+                txtTPB3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB4.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB4.setText("" + object.getString("muatienmat"));
+                txtTPB4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB5.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB5.setText("" + object.getString("muatienmat"));
+                txtTPB5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB6.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB6.setText("" + object.getString("muatienmat"));
+                txtTPB6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB7.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB7.setText("" + object.getString("muatienmat"));
+                txtTPB7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB8.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB8.setText("" + object.getString("muatienmat"));
+                txtTPB8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB9.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB9.setText("" + object.getString("muatienmat"));
+                txtTPB9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB10.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB10.setText("" + object.getString("muatienmat"));
+                txtTPB10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB11.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB11.setText("" + object.getString("muatienmat"));
+                txtTPB11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtTPB12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtTPB12.setTextColor(Color.parseColor("green"));
                 }
-                txtTPB12.setText("" + object.getString("muatienmat"));
+                txtTPB12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -828,143 +929,143 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Fill data DongA
+     * Fill data DongABank
      *
      * @param object
      * @return 1 or 0
      */
-    private int fillDataDongA(JSONObject object) {
+    private int fillDataDongA(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA1.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA1.setText("" + object.getDouble("muatienmat"));
+                txtDongA1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA2.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA2.setText("" + object.getDouble("muatienmat"));
+                txtDongA2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA3.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA3.setText("" + object.getString("muatienmat"));
+                txtDongA3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA4.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA4.setText("" + object.getString("muatienmat"));
+                txtDongA4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA5.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA5.setText("" + object.getString("muatienmat"));
+                txtDongA5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA6.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA6.setText("" + object.getString("muatienmat"));
+                txtDongA6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA7.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA7.setText("" + object.getString("muatienmat"));
+                txtDongA7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA8.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA8.setText("" + object.getString("muatienmat"));
+                txtDongA8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA9.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA9.setText("" + object.getString("muatienmat"));
+                txtDongA9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA10.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA10.setText("" + object.getString("muatienmat"));
+                txtDongA10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA11.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA11.setText("" + object.getString("muatienmat"));
+                txtDongA11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtDongA12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtDongA12.setTextColor(Color.parseColor("green"));
                 }
-                txtDongA12.setText("" + object.getString("muatienmat"));
+                txtDongA12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -980,137 +1081,137 @@ public class MainActivity extends AppCompatActivity {
      * @param object
      * @return 1 or 0
      */
-    private int fillDataVietinBank(JSONObject object) {
+    private int fillDataVietinBank(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank1.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank1.setText("" + object.getDouble("muatienmat"));
+                txtVietinBank1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank2.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank2.setText("" + object.getDouble("muatienmat"));
+                txtVietinBank2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank2.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank2.setText("" + object.getString("muatienmat"));
+                txtVietinBank2.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank4.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank4.setText("" + object.getString("muatienmat"));
+                txtVietinBank4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank5.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank5.setText("" + object.getString("muatienmat"));
+                txtVietinBank5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank6.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank6.setText("" + object.getString("muatienmat"));
+                txtVietinBank6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank7.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank7.setText("" + object.getString("muatienmat"));
+                txtVietinBank7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank8.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank8.setText("" + object.getString("muatienmat"));
+                txtVietinBank8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank9.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank9.setText("" + object.getString("muatienmat"));
+                txtVietinBank9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank10.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank10.setText("" + object.getString("muatienmat"));
+                txtVietinBank10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank11.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank11.setText("" + object.getString("muatienmat"));
+                txtVietinBank11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtVietinBank12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtVietinBank12.setTextColor(Color.parseColor("green"));
                 }
-                txtVietinBank12.setText("" + object.getString("muatienmat"));
+                txtVietinBank12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -1126,138 +1227,138 @@ public class MainActivity extends AppCompatActivity {
      * @param object
      * @return 1 or 0
      */
-    private int fillDataSHB(JSONObject object) {
+    private int fillDataSHB(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB1.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB1.setText("" + object.getDouble("muatienmat"));
+                txtSHB1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB2.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB2.setText("" + object.getDouble("muatienmat"));
+                txtSHB2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB3.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB3.setText("" + object.getString("muatienmat"));
+                txtSHB3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB4.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB4.setText("" + object.getString("muatienmat"));
+                txtSHB4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB5.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB5.setText("" + object.getString("muatienmat"));
+                txtSHB5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB6.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB6.setText("" + object.getString("muatienmat"));
+                txtSHB6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB7.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB7.setText("" + object.getString("muatienmat"));
+                txtSHB7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB8.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB8.setText("" + object.getString("muatienmat"));
+                txtSHB8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB9.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB9.setText("" + object.getString("muatienmat"));
+                txtSHB9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB10.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB10.setText("" + object.getString("muatienmat"));
+                txtSHB10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB11.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB11.setText("" + object.getString("muatienmat"));
+                txtSHB11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSHB12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSHB12.setTextColor(Color.parseColor("green"));
                 }
-                txtSHB12.setText("" + object.getString("muatienmat"));
+                txtSHB12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -1273,138 +1374,138 @@ public class MainActivity extends AppCompatActivity {
      * @param object
      * @return 1 or 0
      */
-    private int fillDataSacomBank(JSONObject object) {
+    private int fillDataSacomBank(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank1.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank1.setText("" + object.getDouble("muatienmat"));
+                txtSacomBank1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank2.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank2.setText("" + object.getDouble("muatienmat"));
+                txtSacomBank2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank3.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank3.setText("" + object.getString("muatienmat"));
+                txtSacomBank3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank4.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank4.setText("" + object.getString("muatienmat"));
+                txtSacomBank4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank5.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank5.setText("" + object.getString("muatienmat"));
+                txtSacomBank5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank6.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank6.setText("" + object.getString("muatienmat"));
+                txtSacomBank6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank7.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank7.setText("" + object.getString("muatienmat"));
+                txtSacomBank7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank8.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank8.setText("" + object.getString("muatienmat"));
+                txtSacomBank8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank9.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank9.setText("" + object.getString("muatienmat"));
+                txtSacomBank9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank10.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank10.setText("" + object.getString("muatienmat"));
+                txtSacomBank10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank11.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank11.setText("" + object.getString("muatienmat"));
+                txtSacomBank11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtSacomBank12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtSacomBank12.setTextColor(Color.parseColor("green"));
                 }
-                txtSacomBank12.setText("" + object.getString("muatienmat"));
+                txtSacomBank12.setText("" + object.getString(typeMoney));
 
             }
             return 1;
@@ -1415,143 +1516,143 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Fill data sacombank
+     * Fill data BIDV
      *
      * @param object
      * @return 1 or 0
      */
-    private int fillDataBIDV(JSONObject object) {
+    private int fillDataBIDV(JSONObject object, String typeMoney, String typeMoneyDiff) {
         try {
             if (object.getString("code").equals("JPY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV1.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV1.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV1.setText("" + object.getDouble("muatienmat"));
+                txtBIDV1.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CNY")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV2.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV2.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV2.setText("" + object.getDouble("muatienmat"));
+                txtBIDV2.setText("" + object.getDouble(typeMoney));
 
             }
             if (object.getString("code").equals("CHF")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV3.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV3.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV3.setText("" + object.getString("muatienmat"));
+                txtBIDV3.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("AUD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV4.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV4.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV4.setText("" + object.getString("muatienmat"));
+                txtBIDV4.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("GBP")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV5.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV5.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV5.setText("" + object.getString("muatienmat"));
+                txtBIDV5.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("HKD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV6.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV6.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV6.setText("" + object.getString("muatienmat"));
+                txtBIDV6.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("SGD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV7.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV7.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV7.setText("" + object.getString("muatienmat"));
+                txtBIDV7.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("THB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV8.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV8.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV8.setText("" + object.getString("muatienmat"));
+                txtBIDV8.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("CAD")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV9.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV9.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV9.setText("" + object.getString("muatienmat"));
+                txtBIDV9.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("KRW")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV10.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV10.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV10.setText("" + object.getString("muatienmat"));
+                txtBIDV10.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("RUB")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV11.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV11.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV11.setText("" + object.getString("muatienmat"));
+                txtBIDV11.setText("" + object.getString(typeMoney));
 
             }
             if (object.getString("code").equals("DKK")) {
 
-                if (object.getDouble("muatienmat_diff") < 0) {
+                if (object.getDouble(typeMoneyDiff) < 0) {
                     txtBIDV12.setTextColor(Color.parseColor("#ff0000"));
                 }
-                if (object.getDouble("muatienmat_diff") > 0) {
+                if (object.getDouble(typeMoneyDiff) > 0) {
                     txtBIDV12.setTextColor(Color.parseColor("green"));
                 }
-                txtBIDV12.setText("" + object.getString("muatienmat"));
+                txtBIDV12.setText("" + object.getString(typeMoney));
 
             }
             return 1;

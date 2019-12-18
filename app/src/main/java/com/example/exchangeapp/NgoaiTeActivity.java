@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class NgoaiTeActivity extends AppCompatActivity {
 
@@ -16,6 +17,10 @@ public class NgoaiTeActivity extends AppCompatActivity {
     private Button btnLaiSuat;
     private Button btnTienAo;
 
+    private Button btnUSD, btnEUR, btnJPY, btnKRW, btnCNY, btnGDP, btnSGD, btnCAD, btnTHB, btnRUB;
+    private TextView txtMuaTienMat1, txtMuaTienMat2, txtMuaTienMat3, txtMuaTienMat4, txtMuaTienMat5,
+        txtMuaTienMat6, txtMuaTienMat7, txtMuaTienMat8, txtMuaTienMat9, txtMuaTienMat10, txtMuaTienMat11;
+    private TextView txtMuaChuyenKhoan1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,15 @@ public class NgoaiTeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /**
+         * Call API this here
+         */
+        CallAPi callAPI = new CallAPi();
+
+        /**
+         * init button currency
+         */
 
     }
 }

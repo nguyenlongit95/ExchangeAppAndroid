@@ -177,25 +177,25 @@
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:stretchColumns="*"
             android:overScrollMode="always">
 
             <TableRow
                 android:id="@+id/tableTitle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/txtMaNgoaiTe"
-                    android:layout_width="30dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:gravity="center"
                     android:text="-" />
 
                 <TextView
                     android:id="@+id/txtVietcomBank"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="KKH"
                     android:textSize="10sp"
@@ -204,9 +204,8 @@
 
                 <TextView
                     android:id="@+id/txtArgiBank"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="1 Tháng"
                     android:textSize="10sp"
@@ -215,9 +214,8 @@
 
                 <TextView
                     android:id="@+id/txtTechcomBank"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3 Tháng"
                     android:textSize="10sp"
@@ -226,9 +224,8 @@
 
                 <TextView
                     android:id="@+id/txtDongA"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6 Tháng"
                     android:textSize="10sp"
@@ -237,9 +234,8 @@
 
                 <TextView
                     android:id="@+id/txtVietinBank"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="true"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="9 Tháng"
@@ -249,9 +245,8 @@
 
                 <TextView
                     android:id="@+id/txtSHB"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="12 Tháng"
                     android:textSize="10sp"
@@ -260,9 +255,8 @@
 
                 <TextView
                     android:id="@+id/txtSacomBank"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="24 Tháng"
                     android:textSize="10sp"
@@ -271,9 +265,8 @@
 
                 <TextView
                     android:id="@+id/txtBIDV"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="36 Tháng"
                     android:textSize="10sp"
@@ -285,21 +278,20 @@
             <TableRow
                 android:id="@+id/tableJPY"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#BFFFFFFF">
 
                 <ImageView
                     android:id="@+id/imageView14"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/vcb" />
 
                 <TextView
                     android:id="@+id/txtKKH1"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.1"
@@ -309,9 +301,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.1"
                     android:textSize="12sp"
@@ -320,9 +311,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -331,9 +321,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -342,9 +331,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.6"
                     android:textSize="12sp"
@@ -353,9 +341,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang1"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.2"
                     android:textSize="12sp"
@@ -364,9 +351,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang1"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.1"
                     android:textSize="12sp"
@@ -375,9 +361,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang1"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.4"
                     android:textSize="12sp"
@@ -388,20 +373,19 @@
             <TableRow
                 android:id="@+id/tableCNY"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView23"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/tcb" />
 
                 <TextView
                     android:id="@+id/txtKKH2"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.1"
@@ -411,9 +395,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang2"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.1"
                     android:textSize="12sp"
@@ -422,9 +405,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang2"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.2"
                     android:textSize="12sp"
@@ -433,9 +415,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang2"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -444,9 +425,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang2"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.8"
                     android:textSize="12sp"
@@ -455,9 +435,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang2"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.3"
                     android:textSize="12sp"
@@ -466,9 +445,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang2"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.2"
                     android:textSize="12sp"
@@ -477,9 +455,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang2"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.4"
                     android:textSize="12sp"
@@ -490,21 +467,20 @@
             <TableRow
                 android:id="@+id/tableCHF"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#FFFFFF">
 
                 <ImageView
                     android:id="@+id/imageView24"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/vtb" />
 
                 <TextView
                     android:id="@+id/txtKKH3"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.1"
@@ -514,9 +490,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang3"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.2"
                     android:textSize="12sp"
@@ -525,9 +500,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang3"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -536,9 +510,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang3"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.2"
                     android:textSize="12sp"
@@ -547,9 +520,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang3"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.9"
                     android:textSize="12sp"
@@ -558,9 +530,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang3"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.4"
                     android:textSize="12sp"
@@ -569,9 +540,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang3"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.5"
                     android:textSize="12sp"
@@ -580,9 +550,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang3"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.5"
                     android:textSize="12sp"
@@ -593,20 +562,19 @@
             <TableRow
                 android:id="@+id/tableAUD"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView25"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/sac" />
 
                 <TextView
                     android:id="@+id/txtKKH4"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.1"
@@ -616,9 +584,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang4"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.3"
                     android:textSize="12sp"
@@ -627,9 +594,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang4"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.3"
                     android:textSize="12sp"
@@ -638,9 +604,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang4"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.0"
                     android:textSize="12sp"
@@ -649,9 +614,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang4"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.1"
                     android:textSize="12sp"
@@ -660,9 +624,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang4"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.1"
                     android:textSize="12sp"
@@ -671,9 +634,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang4"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.8"
                     android:textSize="12sp"
@@ -682,9 +644,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang4"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.6"
                     android:textSize="12sp"
@@ -695,21 +656,20 @@
             <TableRow
                 android:id="@+id/tableGDP"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#FFFFFF">
 
                 <ImageView
                     android:id="@+id/imageView26"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/agribank" />
 
                 <TextView
                     android:id="@+id/txtKKH5"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.2"
@@ -719,9 +679,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang5"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.4"
                     android:textSize="12sp"
@@ -730,9 +689,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang5"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -741,9 +699,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang5"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -752,9 +709,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang5"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.2"
                     android:textSize="12sp"
@@ -763,9 +719,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang5"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.0"
                     android:textSize="12sp"
@@ -774,9 +729,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang5"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.9"
                     android:textSize="12sp"
@@ -785,9 +739,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang5"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.7"
                     android:textSize="12sp"
@@ -798,20 +751,19 @@
             <TableRow
                 android:id="@+id/tableHKD"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView27"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/dab" />
 
                 <TextView
                     android:id="@+id/txtKKH6"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.3"
@@ -821,9 +773,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang6"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.5"
                     android:textSize="12sp"
@@ -832,9 +783,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang6"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.2"
                     android:textSize="12sp"
@@ -843,9 +793,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang6"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.1"
                     android:textSize="12sp"
@@ -854,9 +803,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang6"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.4"
                     android:textSize="12sp"
@@ -865,9 +813,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang6"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.1"
                     android:textSize="12sp"
@@ -876,9 +823,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang6"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.0"
                     android:textSize="12sp"
@@ -887,9 +833,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang6"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.8"
                     android:textSize="12sp"
@@ -900,21 +845,20 @@
             <TableRow
                 android:id="@+id/tableSGD"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#FFFFFF">
 
                 <ImageView
                     android:id="@+id/imageView28"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/shb" />
 
                 <TextView
                     android:id="@+id/txtKKH7"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.2"
@@ -924,9 +868,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang7"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.6"
                     android:textSize="12sp"
@@ -935,9 +878,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang7"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.5"
                     android:textSize="12sp"
@@ -946,9 +888,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang7"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.9"
                     android:textSize="12sp"
@@ -957,9 +898,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang7"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.5"
                     android:textSize="12sp"
@@ -968,9 +908,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang7"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.2"
                     android:textSize="12sp"
@@ -979,9 +918,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang7"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.2"
                     android:textSize="12sp"
@@ -990,9 +928,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang7"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="7.5"
                     android:textSize="12sp"
@@ -1003,20 +940,19 @@
             <TableRow
                 android:id="@+id/tableTHB"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView29"
-                    android:layout_width="20dp"
+                    android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:padding="3dp"
                     app:srcCompat="@drawable/bidv" />
 
                 <TextView
                     android:id="@+id/txtKKH8"
-                    android:layout_width="35dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_horizontal"
                     android:text="0.4"
@@ -1026,9 +962,8 @@
 
                 <TextView
                     android:id="@+id/txt1Thang8"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="3.7"
                     android:textSize="12sp"
@@ -1037,9 +972,8 @@
 
                 <TextView
                     android:id="@+id/txt3Thang8"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.7"
                     android:textSize="12sp"
@@ -1048,9 +982,8 @@
 
                 <TextView
                     android:id="@+id/txt6Thang8"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="4.8"
                     android:textSize="12sp"
@@ -1059,9 +992,8 @@
 
                 <TextView
                     android:id="@+id/txt9Thang8"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="5.1"
                     android:textSize="12sp"
@@ -1070,9 +1002,8 @@
 
                 <TextView
                     android:id="@+id/txt12Thang8"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.3"
                     android:textSize="12sp"
@@ -1081,9 +1012,8 @@
 
                 <TextView
                     android:id="@+id/txt24Thang8"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="6.2"
                     android:textSize="12sp"
@@ -1092,9 +1022,8 @@
 
                 <TextView
                     android:id="@+id/txt36Thang8"
-                    android:layout_width="45dp"
+                    android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:autoText="false"
                     android:gravity="center"
                     android:text="8.0"
                     android:textSize="12sp"

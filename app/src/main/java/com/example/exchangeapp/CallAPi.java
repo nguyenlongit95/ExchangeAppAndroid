@@ -13,7 +13,7 @@ public class CallAPi {
      * @return String
      */
     public String urlAPI(String url) {
-        return this.linkHost = "https://5e860e8b.ngrok.io/ExchangeApp/public/api/v1/" + url;
+        return this.linkHost = "https://6f0a906c.ngrok.io/exchange_app/public/api/v1/" + url;
     }
 
 }

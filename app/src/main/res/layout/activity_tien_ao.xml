@@ -19,15 +19,16 @@
             android:id="@+id/menuLayout"
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:stretchColumns="*"
             android:background="#FFFFFF">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/btnTyGia"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Tỷ Giá"
                     android:textSize="10sp"
@@ -35,7 +36,7 @@
 
                 <Button
                     android:id="@+id/btnNgoaiTe"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Ngoại Tệ"
                     android:textSize="10sp"
@@ -43,7 +44,7 @@
 
                 <Button
                     android:id="@+id/btnGiaVang"
-                    android:layout_width="75dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Giá Vàng"
                     android:textSize="10sp"
@@ -51,7 +52,7 @@
 
                 <Button
                     android:id="@+id/btnLaiSuat"
-                    android:layout_width="75dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Lãi Suất"
                     android:textSize="10sp"
@@ -59,7 +60,7 @@
 
                 <Button
                     android:id="@+id/btnTienAo"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Tiền Ảo"
                     android:textSize="10sp"
@@ -68,60 +69,61 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="72dp" />
         </TableLayout>
 
         <TableLayout
             android:id="@+id/navbarLayout"
             android:layout_width="match_parent"
+            android:stretchColumns="*"
             android:layout_height="80dp">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnBitcoin"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Bitcoin"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnEthereum"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Etherum"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnXRP"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="XRP"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnTether"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Tether"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnBitcoinCash"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Stellar"
                     android:textSize="10sp" />
@@ -129,53 +131,53 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnLiteCoin"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="LiteCoin"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnCardano"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Cardano"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnTRON"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Tron"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnDASH"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Dash"
                     android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnIOTA"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="IOTA"
                     android:textSize="10sp" />
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </TableLayout>
 

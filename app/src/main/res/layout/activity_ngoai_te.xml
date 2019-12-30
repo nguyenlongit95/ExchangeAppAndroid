@@ -19,15 +19,16 @@
             android:id="@+id/menuLayout"
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:stretchColumns="*"
             android:background="#FFFFFF">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/btnTyGia"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Tỷ Giá"
                     android:textSize="10sp"
@@ -35,7 +36,7 @@
 
                 <Button
                     android:id="@+id/btnNgoaiTe"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Ngoại Tệ"
                     android:textSize="10sp"
@@ -43,7 +44,7 @@
 
                 <Button
                     android:id="@+id/btnGiaVang"
-                    android:layout_width="75dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Giá Vàng"
                     android:textSize="10sp"
@@ -51,7 +52,7 @@
 
                 <Button
                     android:id="@+id/btnLaiSuat"
-                    android:layout_width="75dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Lãi Suất"
                     android:textSize="10sp"
@@ -59,7 +60,7 @@
 
                 <Button
                     android:id="@+id/btnTienAo"
-                    android:layout_width="70dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Tiền Ảo"
                     android:textSize="10sp"
@@ -68,60 +69,61 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="72dp" />
         </TableLayout>
 
         <TableLayout
             android:id="@+id/navbarLayout"
             android:layout_width="match_parent"
+            android:stretchColumns="*"
             android:layout_height="80dp">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnUSD"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="USD"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnEUR"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="EUR"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnJPY"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="JPY"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnKRW"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="KRW"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnCNY"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="CNY"
                     android:textSize="14sp" />
@@ -129,53 +131,53 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnGDP"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="GDP"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnSGD"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="SGD"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnCAD"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="CAD"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnTHB"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="THB"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btnRUB"
-                    android:layout_width="72dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="RUB"
                     android:textSize="14sp" />
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </TableLayout>
 
@@ -203,7 +205,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="   -" />
+                    android:text="   " />
 
                 <TextView
                     android:id="@+id/txtVietcomBank"
